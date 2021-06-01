@@ -1,0 +1,48 @@
+<div id="loader" style="display: none;">
+    <div class="d-flex justify-content-center">
+        <div class="spinner-border" role="status">
+            <span class="sr-only" id="loading"></span>
+        </div>
+        
+
+    </div>
+</div>
+<form [formGroup]='this.service.Group'  (submit)="onSubmit()">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-12 shop-form">
+                <div class="title">Group</div>  
+
+                <div class="title">General Information</div>
+                <input type="hidden" formControlName="id">
+                <input type="hidden" formControlName="imageUrl">
+                <div class="formControleContainer">
+                <div class="d-inline-block formControle">
+                    <span >Group</span>
+                    <input formControlName="name" class="formControle-input" placeholder="name" >
+                </div>
+                <div class="d-inline-block formControle" >
+                    <span>year</span>
+                    <input formControlName="year" class="formControle-input" type="number" placeholder="2021" >
+                </div>
+                <div class="d-inline-block formControle">
+                   <span>Domain</span>
+                    <input formControlName="mDomain" type="number" class="formControle-input" maxlength="8" placeholder="phoneNumber">
+                </div>
+               
+            </div>
+
+            <div class="button-container" style="position: relative;">
+                <button mat-raised-button color="primary" type="submit" [disabled]="service.Group.invalid">Submit</button>
+                <button mat-raised-button color="warn" type="button" style="margin-left: 10%;" (click)="onClear()">Clear</button>
+            </div>
+            </div>
+
+            
+
+        </div>
+    </div>
+    
+      
+</form>

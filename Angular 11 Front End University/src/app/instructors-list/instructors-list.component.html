@@ -1,0 +1,57 @@
+<div class="container " style="position: fixed;">
+
+
+    <div class="search-div">
+        <button mat-raised-button (click)="onCreate()">
+          <mat-icon>add</mat-icon>instructor
+        </button>
+        <mat-form-field class="search-form-field" floatLabel="never">
+          <input matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="off" (keyup)="applyFilter()">
+          <button mat-button matSuffix mat-icon-button aria-label="Clear"*ngIf="searchKey"  (click)="onSearchClear()">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+    <div class="mat-elevation-z8" style="width:75vw;">
+        <mat-table [dataSource]="ListData" matSort>
+            <!-- <ng-container matColumnDef="image">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Product Image</mat-header-cell>
+                <mat-cell class="margin" *matCellDef="let element"><img width="66%"
+                    height="66%"[src]="element.image"><p style="display: none;"> </p>
+                </mat-cell>
+            </ng-container> -->
+        <ng-container matColumnDef="Name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Full Name</mat-header-cell>
+        <mat-cell *matCellDef="let element"><p class="p1">{{element.fullName}}</p></mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="Email">
+            <mat-header-cell *matHeaderCellDef>email</mat-header-cell>
+            <mat-cell *matCellDef="let element"><p class="p2" style="margin-right: 10%;">{{element.email}}</p></mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="phone">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>phoneNumber</mat-header-cell>
+            <mat-cell *matCellDef="let element"><p class="p1">{{element.phone}}</p></mat-cell>1
+        </ng-container>
+        <ng-container matColumnDef="Actions">
+            <mat-header-cell *matHeaderCellDef></mat-header-cell>
+            <mat-cell *matCellDef="let row">
+               
+                    <div class="col-md-12 text-center">
+    
+                        <button type="button" style="margin-bottom:4%;" class="btn btn-outline-warning" (click)="onEdit(row)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                        <button type="button" (click)="onDelete(row)" class="btn btn-outline-danger">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Delete&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                    </div>
+                
+            
+            
+            
+            </mat-cell>
+        </ng-container>
+        
+        
+        <mat-header-row *matHeaderRowDef="DisplayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row;columns:DisplayedColumns;"></mat-row>
+    </mat-table>
+    <mat-paginator [pageSizeOptions]='[2,4,5,6]' [pageSize]="5"></mat-paginator>
+    </div>
+    </div>

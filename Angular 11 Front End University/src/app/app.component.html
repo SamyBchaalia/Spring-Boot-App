@@ -1,0 +1,58 @@
+<mat-sidenav-container style="width: 100%;">
+  <mat-sidenav class="container" #sidenav mode="side" opened="true">
+    <mat-nav-list>
+
+      <mat-list-item style="margin-top: 10%; margin-bottom:20%;">
+        <img src="../assets/Logos-Sesame-13 (1).png" width="100%">
+      </mat-list-item>
+      <mat-list-item >
+          <div class="col-md-12 text-center">
+              <button type="button" class="btn btn-outline-warning" >SIGN OUT</button>
+
+          </div>
+        </mat-list-item>
+        
+      <mat-list-item  class="item-link" [routerLink]="''">
+          <img src="../assets/home (1).svg" height="50%">
+        <span class="margin" *ngIf="isExpanded">Home Main</span>
+      </mat-list-item>
+      <mat-list-item  class="item-link" [routerLink]="'instructors'">
+          <img src="../assets/instructor.svg" height="50%">
+       <span class="margin" *ngIf="isExpanded">Instractors</span>
+     </mat-list-item>
+     <mat-list-item class="item-link" [routerLink]="'students'">
+      <img src="../assets/graduated.svg" height="50%">
+    
+   <span class="margin" *ngIf="isExpanded">Students</span>
+ </mat-list-item>
+     <mat-list-item class="item-link" [routerLink]="'rooms'">
+      <img src="../assets/meeting.svg" height="50%">
+    <span class="margin" *ngIf="isExpanded">Rooms</span>
+  </mat-list-item>
+     
+ <mat-list-item class="item-link" [routerLink]="'info'">
+  <img src="../assets/laptop.svg" height="50%">
+
+<span class="margin"  *ngIf="isExpanded">Session</span>
+</mat-list-item>
+<mat-list-item class="item-link" [routerLink]="'group'">
+  <img src="../assets/big-group-of-small-students-with-giant-professor-in-front-of-the-class-talking.svg" height="50%">
+<span class="margin" *ngIf="isExpanded">Groups</span>
+</mat-list-item>
+<mat-list-item class="item-link" [routerLink]="'info'">
+  <img src="../assets/view-details (1).svg" height="50%">
+
+<span class="margin" *ngIf="isExpanded">General Information</span>
+</mat-list-item>
+      
+      
+
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <div class="row m-0 p-0 " >
+  
+    <router-outlet></router-outlet>
+  </div>
+
+</mat-sidenav-container>
